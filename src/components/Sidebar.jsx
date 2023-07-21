@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import NavLink from "./NavLink";
 
 const Sidebar = () => {
   const navItem = [
@@ -26,7 +27,9 @@ const Sidebar = () => {
       <ul>
         {navItem.map(({ path, title }) => (
           <li key={path} className="my-2">
-            <Link href={path}>{title}</Link>
+            <NavLink exact activeClassName="text-blue-500" href={path}>
+              {title}
+            </NavLink>
           </li>
         ))}
       </ul>

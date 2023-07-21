@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import NavLink from "./NavLink";
 
 const Navbar = () => {
   const navItem = [
@@ -26,10 +29,16 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center container mx-auto bg-slate-600 px-5">
       <h1 className="text-3xl font-semibold">Next-Hero</h1>
+
       <ul className="flex gap-2 items-center justify-center">
         {navItem.map(({ path, title }) => (
           <li key={path}>
-            <Link href={path}>{title}</Link>
+            <NavLink
+              exact={path === "/"}
+              activeClassName="text-blue-500  "
+              href={path}>
+              {title}
+            </NavLink>
           </li>
         ))}
       </ul>
