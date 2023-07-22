@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 const BlogsPage = () => {
   const blogs = [
@@ -28,7 +27,10 @@ const BlogsPage = () => {
     <div className="container mx-auto">
       {blogs.map(({ id, year, title }) => (
         <li key={id} className="border border-blue-900 my-2">
-          <Link href={`/blog/${year}/${id}`}>{title}</Link>
+          <Link
+            href={{ pathname: `/blog/${year}/${id}`, query: { title: title } }}>
+            {title}
+          </Link>
         </li>
       ))}
     </div>
