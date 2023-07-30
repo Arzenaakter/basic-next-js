@@ -1,8 +1,7 @@
+import loadBlogData from "@/utils/loadBlogData";
 import Link from "next/link";
 
 const BlogsPage = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const blogs = await res.json();
   // const blogs = [
   //   {
   //     id: 1,
@@ -25,6 +24,12 @@ const BlogsPage = async () => {
   //     title: "title 4",
   //   },
   // ];
+
+  // const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  // const blogs = await res.json();
+
+  const blogs = await loadBlogData();
+
   return (
     <div className="container mx-auto">
       {blogs.map(({ id, body, title }) => (
